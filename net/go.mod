@@ -1,3 +1,3 @@
-module github.com/go-language-plus/code-example/net
+module "net"
 
-go 1.15
+go 1.16
