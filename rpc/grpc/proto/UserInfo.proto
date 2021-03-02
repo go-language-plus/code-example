@@ -1,0 +1,26 @@
+// UserInfo.proto
+// protoc -I=proto --go_out=plugins=grpc:proto/user proto/UserInfo.proto
+syntax = "proto3"; // 使用的 proto 版本
+
+package user; // 包名
+
+// go_package 用于最终生成的 go 包定义；会覆盖 package 定义，转而使用这里定义的全路径来生成；
+// 如果已经在生成工具指定路径，可以不用这个参数
+//option go_package = "github.com/go-language-plus/code-example/rpc/grpc/go/user";
+
+// 定义服务， gRPC 服务接口
+service UserInfo {
+  rpc addUser(User) returns (UserID); // 远程方法，定义传参和返回值
+  rpc getUser(UserID) returns (User);
+}
+
+// 定义消息格式和类型；数据传输的主体
+message User {
+  string ID = 1; // 对应字段的唯一编号
+  string name = 2;
+  string city = 3;
+}
+
+message UserID {
+  string value = 1;
+}
