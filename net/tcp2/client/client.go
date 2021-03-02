@@ -6,7 +6,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/go-language-plus/code-example/net/tcp2/proto"
+	"net/tcp2/proto"
 )
 
 func main() {
